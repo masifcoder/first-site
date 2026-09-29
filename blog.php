@@ -30,11 +30,11 @@ if (isset($_SESSION['isLoggedIn']) == false) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.php">Profile</a>
+                        <a class="nav-link" href="blog.php">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Register</a>
@@ -52,7 +52,7 @@ if (isset($_SESSION['isLoggedIn']) == false) {
     </nav>
     <div class="container py-5">
         <div class="row justify-content-center">
-            <h1>User Profile Page</h1>
+            <h1>Blog Posts page</h1>
         </div>
     </div>
 

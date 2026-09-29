@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// login check
+
+if (isset($_SESSION['isLoggedIn']) == true) {
+
+    if ($_SESSION['isLoggedIn'] == "YES") {
+        header("Location: profile.php");
+        exit;
+    }
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -13,10 +28,10 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="login.php" method="post" >
+                <form action="login.php" method="post">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" name="email"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Password</label>
