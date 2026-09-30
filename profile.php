@@ -52,7 +52,9 @@ if (isset($_SESSION['isLoggedIn']) == false) {
     </nav>
     <div class="container py-5">
         <div class="row justify-content-center">
-            <h1>User Profile Page</h1>
+            <h1>
+                Welcome, <?php echo (isset($_SESSION['username'])) ? $_SESSION['username'] : '' ; ?>
+            </h1>
         </div>
     </div>
 

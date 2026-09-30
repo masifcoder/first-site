@@ -30,6 +30,16 @@ if (isset($_SESSION['isLoggedIn']) == true) {
             <div class="col-md-6">
                 <form action="login.php" method="post">
                     <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+                        <?php if (isset($_SESSION['username_err']) == true) {  ?>
+                            <div class="alert alert-danger my-2" role="alert">
+                                <?php echo $_SESSION['username_err'];  unset($_SESSION['username_err']); ?>
+                            </div>
+                        <?php } ?>
+                    
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
@@ -37,6 +47,16 @@ if (isset($_SESSION['isLoggedIn']) == true) {
                         <label for="exampleFormControlInput1" class="form-label">Password</label>
                         <input type="password" name="pwd" class="form-control" id="exampleFormControlInput1" placeholder="password">
                     </div>
+
+                    <div class="mb-3">
+                        <?php if (isset($_SESSION['login_error']) == true) {  ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $_SESSION['login_error'];  unset($_SESSION['login_error']); ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+
+
                     <div class="mb-3">
                         <button class="btn btn-warning btn-sm">Login</button>
                     </div>
@@ -44,7 +64,6 @@ if (isset($_SESSION['isLoggedIn']) == true) {
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
