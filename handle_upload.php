@@ -1,39 +1,27 @@
 <?php
 
+   $file_name = $_FILES['photo']['name'];
+   $tmp_path  = $_FILES['photo']['tmp_name'];
+   $size      = $_FILES['photo']['size'];
+   $limit_size = 2 * 1024 * 1024; // 2mb
 
-// echo "<pre>";
-// print_r($_FILES);
-// echo "</pre>";
+// check 1 =  only allow images
+$allowed_exts = ['jpg', 'jpeg', 'png'];
+$ext =  pathinfo($file_name, PATHINFO_EXTENSION  );
 
-echo "-------------------------<br>";
+if( in_array( $ext, $allowed_exts) == false ) {
+    die("selected file type is not allowed");
+} 
 
-echo "<pre>";
-print_r($_FILES['photo']);
-echo "</pre>";
-
-$file = $_FILES['photo'];
-
-
-// step 1 settings
-
-
-//only images are allowed
-$allowed_exts = ['jpeg', 'jpg', "png", "webp"];
-
-// extracting extension from original file name
-$ext =  pathinfo($file['name'],  PATHINFO_EXTENSION);
-
-if (!in_array($ext, $allowed_exts)) {
-    exit("File you selected is not allowed");
+// check 2 =  don't allow more than 2mb files
+if($size > $limit_size) {
+    die("File size should be less than 2mb");
 }
 
-// file size ????
+// check 3 = rename uploaded files
+$new_path = "photos/" . uniqid() . ".$ext";
 
+// saving in our folder
+move_uploaded_file($tmp_path, $new_path);
 
-// unique image name
-$new_file_path = "uploads/" . uniqid() . "." . $ext;
-
-
-
-//move uploaded file
-move_uploaded_file($file['tmp_name'],  $new_file_path);
+?>

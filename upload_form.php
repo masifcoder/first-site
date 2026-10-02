@@ -13,5 +13,9 @@
         <input type="file" name="photo"  />
         <button>Upload</button>
     </form>
+
+    
+
+
 </body>
 </html>
